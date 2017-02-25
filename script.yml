@@ -1,0 +1,7 @@
+--- # webserver setup
+- hosts: appservers
+  user: test
+  sudo: yes
+  tasks:
+    - name: Executing script 
+      script: ./abc.sh

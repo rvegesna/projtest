@@ -1,0 +1,7 @@
+--- # webserver setup
+- hosts: appservers
+  user: test
+  sudo: yes
+  tasks:
+    - name: creating a file
+      template: src=abc.j2 dest=/etc/abc

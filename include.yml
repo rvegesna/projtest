@@ -1,0 +1,8 @@
+--- # webserver setup
+- hosts: appservers
+  user: test
+  sudo: yes
+  tasks:
+       - include: install.yml
+  handlers:
+       - include: service.yml

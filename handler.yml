@@ -1,0 +1,17 @@
+--- # webserver setup
+- hosts: appservers
+  user: test
+  sudo: yes
+  tasks:
+    - name: installing httpd package
+      yum: name=httpd state=installed
+    - name: copy index.html
+      copy: src=index.html dest=/var/www/html/index.html
+      notify: 
+           - start httpd service
+           - start httpd
+  handlers:
+    - name: start httpd service
+      service: name=httpd state=restarted
+    - name: start httpd 
+      service: name=httpd state=restarted
